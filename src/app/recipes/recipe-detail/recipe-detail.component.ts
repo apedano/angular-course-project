@@ -1,6 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
+import { throttleTime } from 'rxjs';
 import { ShoppingListService } from 'src/app/shopping-list/shopping-list.service';
 import { Recipe } from '../recipe.model';
+import { RecipeService } from '../recipe.service';
 
 @Component({
   selector: 'app-recipe-detail',
@@ -9,11 +12,22 @@ import { Recipe } from '../recipe.model';
 })
 export class RecipeDetailComponent implements OnInit {
 
-  @Input() recipe: Recipe;
+  recipe: Recipe;
 
-  constructor(private shoppingListService: ShoppingListService) { }
+  constructor(private shoppingListService: ShoppingListService, 
+    private recipeService: RecipeService,
+    private currentRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.currentRoute.params
+    .subscribe(
+      (updatedParams: Params) => {
+        if (updatedParams['id']) {
+          const id: number = +updatedParams['id'];
+          this.recipe = this.recipeService.getRecipe(id);
+        }
+      }
+    );
   }
 
   toShoppingListClick() {
