@@ -1,0 +1,8 @@
+<p>recipe-edit works!</p>
+
+<div *ngIf="editMode==true; else newMode">
+    Edit mode. Selected id: {{id}}
+</div>
+<ng-template #newMode>
+    <p>New recipe mode</p>
+</ng-template>

@@ -12,6 +12,8 @@ import { DropdownDirective } from './shared/dropdown.directive';
 import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
+import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
+import { ObservablesMainComponent } from './observables/observables-main/observables-main.component';
 
 
 
@@ -20,7 +22,9 @@ import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.compon
     AppComponent, HeaderComponent, RecipesComponent, RecipeListComponent, RecipeItemComponent,
     RecipeDetailComponent, ShoppingListComponent, ShoppingEditComponent,
     DropdownDirective,
-    RecipeStartComponent
+    RecipeStartComponent,
+    RecipeEditComponent,
+    ObservablesMainComponent
   ],
   imports: [
     BrowserModule, FormsModule, AppRoutingModule
